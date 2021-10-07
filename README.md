@@ -1,17 +1,17 @@
 [![CI - MongoDB-Atlas-On-AWS](https://github.com/roa-tx/mongodb-atlas-migration/actions/workflows/terraform.yaml/badge.svg)](https://github.com/roa-tx/mongodb-atlas-migration/actions/workflows/terraform.yaml)
 
-# MongoDB Migration
+# Migration to MongoDB Atlas
 
-This repo contains source codes for the migration of **On-Prem** and **Other Cloud Providers'** MongoDB Servers to MongoDB Atlas DBaaS on **AWS**. These include:
+This repo contains the source codes for the migration of MongoDB Servers (**on-prem** or in the **cloud**) to MongoDB Atlas **DBaaS** on **AWS**. These include:
 
 
 ## Terraform (TF) Module.
-Terraform template for the deployment of:
+Terraform module for the deployment of:
 1. MongoDB Atlas Project. 
 2. MongoDB Atlas Project Maintenance Window.
 3. Admin/Master/Super Credentials & AWS Secret Manager's Secret and Secret Version for credential storage.
-4. MongoDB Atlas Database Admin/Master/Super User  (Credential in (3) above is assigned to the DB user).
-5. MongoDB Atlas Clusters
+4. MongoDB Atlas Database Admin/Master/Super User  (Credential in (3) above is assigned to the database user).
+5. MongoDB Atlas Clusters.
 
 
 ## Node.js Module.

@@ -1,3 +1,5 @@
+[![CI - MongoDB-Atlas-On-AWS](https://github.com/roa-tx/mongodb-atlas-migration/actions/workflows/terraform.yaml/badge.svg)](https://github.com/roa-tx/mongodb-atlas-migration/actions/workflows/terraform.yaml)
+
 # MongoDB Migration
 
 This repo contains source codes for the migration of **On-Prem** and **Other Cloud Providers'** MongoDB Servers to MongoDB Atlas DBaaS on **AWS**. These include:

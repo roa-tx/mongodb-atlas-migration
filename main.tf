@@ -146,4 +146,4 @@ resource "mongodbatlas_cluster" "mongodb_cluster" {
     key                          = var.cluster_node_key
     value                        = "${var.org_identifier}-${var.environment}-${var.cluster_names[count.index]}"
   }
-  
+}

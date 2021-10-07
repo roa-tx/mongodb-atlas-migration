@@ -5,18 +5,21 @@ This repo contains source codes for the migration of **On-Prem** and **Other Clo
 
 ## Terraform (TF) Module.
 Terraform template for the deployment of:
-1. MongoDB Atlas Projects and Project Maintenance Windows.
-2. MongoDB Atlas Clusters.
-3. MongoDB Atlas Database Users.
+1. MongoDB Atlas Project. 
+2. MongoDB Atlas Project Maintenance Window.
+3. Admin/Master/Super Credentials & AWS Secret Manager's Secret and Secret Version for credential storage.
+4. MongoDB Atlas Database Admin/Master/Super User  (Credential in (3) above is assigned to the DB user).
+5. MongoDB Atlas Clusters
+
 
 ## Node.js Module.
 The module implements MigrateMongoDB.js class for:
 1. Connecting to and disconnecting from MongoDB databases.
-2. Migrating (Dumping & Restoring) MongoDB databases via mongodump and mongorestore.
-3. Files transfer to and from S3 buckets.
+2. Dumping and Restoring MongoDB databases via mongodump and mongorestore utilities.
+3. Transferring file to, and from, S3 buckets.
 4. Saving objects to file.
 5. Running queries against MongoDB databases.
-6. Validation of MongoDB databases.
+6. Validating MongoDB databases.
 
 ---
 <br>

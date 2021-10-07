@@ -19,9 +19,8 @@ The module implements MigrateMongoDB.js class for:
 1. Connecting to and disconnecting from MongoDB databases.
 2. Dumping and Restoring MongoDB databases via mongodump and mongorestore utilities.
 3. Transferring file to, and from, S3 buckets.
-4. Saving objects to file.
-5. Running queries against MongoDB databases.
-6. Validating MongoDB databases.
+4. Running queries against MongoDB databases.
+5. Validating MongoDB databases.
 
 ---
 <br>

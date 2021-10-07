@@ -21,7 +21,7 @@ recovery_window_in_days                   = 7
 secret_description                        = "Pride Spider MongoDB Atlas Credentials"
 secret_tag_value                          = "mongodb-atlas-credentials"
 aws_secretsmanager_secret_name            = "mongodb-atlas-secret"
-username                                  = "admin"
+username                                  = "adminUser"
 
 # 4. Mongodb Atlas database admin/master/super user variable
 mongodb_admin_role_name                   = "readWriteAnyDatabase"

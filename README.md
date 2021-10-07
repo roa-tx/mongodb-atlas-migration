@@ -1,6 +1,6 @@
 # MongoDB Migration
 
-This repo contains source codes for the migration of **On-Prem** and **Other Cloud Providers'** MongoDB Servers to MongoDB Atlas DBaaS on **AWS**, including:
+This repo contains source codes for the migration of **On-Prem** and **Other Cloud Providers'** MongoDB Servers to MongoDB Atlas DBaaS on **AWS**. These include:
 
 
 ## Terraform (TF) Module.

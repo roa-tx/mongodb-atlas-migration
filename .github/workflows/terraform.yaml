@@ -5,7 +5,7 @@ on:
     branches:
     - main
   pull_request:
-    # matches pull request for all branches and tag names
+   # matches pull request for all branches and tag names
     
 jobs:
   terraform:
@@ -28,8 +28,8 @@ jobs:
     - name: GitHub Actions Runner Set-up
       uses: actions/checkout@v2
       
-    #- name: GitHub Security Scan Set-up
-    #  uses: triat/terraform-security-scan@v1
+    - name: GitHub Security Scan Set-up
+      uses: triat/terraform-security-scan@v1
         
     - name: Terraform CLI Set-up
       uses: hashicorp/setup-terraform@v1
@@ -42,7 +42,7 @@ jobs:
     - name: Terraform Init
       run: terraform init
       
-    - name: Terraform Validate 
+    - name: Terraform Validate
       # validate GitHub Actions workflow config
       run: terraform validate
 

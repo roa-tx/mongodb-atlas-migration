@@ -1,0 +1,16 @@
+{
+    "sourceDbPort": 27017,
+    "sourceDbName": "sourceDbName",
+    "sourceDbColName": "sourceDbColName",
+    "sourceDbUserName": "sourceDbUserName",
+    "sourceDbUserPassword": "sourceDbUserPassword",
+    "sourceDbDomainURL": "sourceDbDomainURL",
+    "sourceDbTls": false,
+    "targetDbPort": 27017,
+    "targetDbName": "targetDbName",
+    "targetDbColName": "targetDbColName",
+    "targetDbUserName": "targetDbUserName",
+    "targetDbUserPassword": "targetDbUserPassword",
+    "targetDbDomainURL": "targetDbDomainURL",
+    "targetDbTls": false
+}

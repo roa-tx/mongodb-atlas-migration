@@ -277,9 +277,8 @@ class MigrateMongoDB
         const validationStats = app.getRelevantStatistics(targetStats, sourceStats);
         let targetStatsList = validationStats.targetValidationVariablesList;
         let sourceStatsList = validationStats.sourceValidationVariablesList;
-        
-        console.log(sourceStatsList)
-        console.log(targetStatsList);
+        let targetStatsUsed = validationStats.targetValidationKeyValuePairs;
+        let sourceStatsUsed = validationStats.targetValidationKeyValuePairs;
       
         // validate migrated database using relevant db.stats' variables
         console.log();
@@ -290,31 +289,31 @@ class MigrateMongoDB
         //console.log input validation variables
         console.log("------------------------------------------");
         console.log("Target Validation Statistics: " );
-        console.log(validationStats.targetValidationKeyValuePairs);
+        console.log(targetStatsUsed);
         console.log("------------------------------------------");
         console.log("Source Validation Statistics: ");
-        console.log(validationStats.sourceValidationKeyValuePairs);
+        console.log(sourceStatsUsed);
         console.log("------------------------------------------");
         
         //print validation results
         if(confirm  === true)
         {
           console.log("Is validation okay?");
-          console.log("Yes, " + "'" + sourceStats.db + "' database is validated");
+          console.log("Yes, " + "'" + sourceStats.db + "' database is validated.");
         }
         else
         {
           console.log("Is validation okay?");
-          console.log("No, " + "'" + sourceStats.db + "' database is NOT validated");
+          console.log("No, " + "'" + sourceStats.db + "' database is NOT validated.");
         }
         
         console.log("------------------------------------------");
         console.log("End of Validation Engine.");
         console.log("------------------------------------------");
 
-        //finally, save stats to file
+        //finally, save stats used for validation to file
         let resultsFileName = "MongoDBValidate.txt";
-        app.saveValidationResults(targetStats, sourceStats, confirm, resultsFileName);
+        app.saveValidationResults(targetStatsUsed, sourceStatsUsed, confirm, resultsFileName);
     }
     
     connectAndValidate(args=null)
@@ -466,7 +465,7 @@ class MigrateMongoDB
         useNewUrlParser: true, useUnifiedTopology: true, minSize: 5, loggerLevel: "error",
         readPreference: 'nearest', maxStalenessSeconds: 90, poolSize: 500, tls: false,
         sslValidate: false, tlsCAFile: sourceTlsCertOptions.ca, tlsCertificateKeyFile: sourceTlsCertOptions.key,
-        connectTimeoutMS: 54000000, 
+        connectTimeoutMS: 54000000,
         socketTimeoutMS:  54000000
     };
     
@@ -517,8 +516,6 @@ class MigrateMongoDB
     action = "transferFromS3";
     action = "query"
     action = "validateDB"
-    action = "";
-    
     
     action = "";
     
@@ -545,7 +542,7 @@ class MigrateMongoDB
             }
         }
         else if(action === "transferToS3")
-        {   
+        {
             const dumpFilePath = "dumpFilePath";
             const options = {accessKeyId: "accessKeyId", secretAccessKey: "secretAccessKey", region: "region"};
             const bucketName = "bucketName";

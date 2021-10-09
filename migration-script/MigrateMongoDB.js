@@ -152,7 +152,6 @@ class MigrateMongoDB
             {
                 if(retrievedRecordsError)
                 {
-                    targetClient.close();
                     sourceClient.close();
                     return console.log(retrievedRecordsError);
                 }

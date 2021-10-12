@@ -22,6 +22,6 @@ The module implements MigrateMongoDB.js class for:
 4. Running queries against MongoDB databases.
 5. Validating MongoDB databases.
 
----
+----
 <br>
 <strong> Copyright © 2021 roa-tx. All Rights Reserved. </strong>

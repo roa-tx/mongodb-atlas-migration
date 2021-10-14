@@ -10,8 +10,8 @@ on:
 jobs:
   terraform:
     name: "Terraform"
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     env:
       APPLY: 'no'
       DESTROY: 'no'

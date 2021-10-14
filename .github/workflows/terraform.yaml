@@ -37,7 +37,7 @@ jobs:
         
     - name: Terraform Variables
       run: |-
-        cat dev.auto.tfvars <<EOF
+        cat prod.auto.tfvars <<EOF
         EOF
       
     - name: Terraform Init

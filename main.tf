@@ -13,15 +13,11 @@ terraform {
     random = {
       source = "hashicorp/random"
     }
-    
-    rediscloud = {
-      source = "RedisLabs/rediscloud"
-    }
   }
 
   backend "s3" {
-    bucket  = "test-bucket-eco"
-    key     = "mongodb-atlas-terraform.tfstate"
+    bucket  = "my-bucket-0"
+    key     = "mongodb-atlas-mgr/terraform.tfstate"
     region  = "us-east-1"
     encrypt = true
   }
@@ -108,7 +104,6 @@ resource "mongodbatlas_database_user" "mongodb_database_admin_user" {
   }
 }
 
-/*
 # 5. create mongodb atlas cluster(s)
 resource "mongodbatlas_cluster" "mongodb_cluster" {
   depends_on                     = [mongodbatlas_database_user.mongodb_database_admin_user]
@@ -147,5 +142,3 @@ resource "mongodbatlas_cluster" "mongodb_cluster" {
     value                        = "${var.org_identifier}-${var.environment}-${var.cluster_names[count.index]}"
   }
 }
-
-*/

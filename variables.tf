@@ -138,6 +138,22 @@ variable "provider_region_names" {
   type = list(string)
 }
 
+variable "electable_nodes" {
+ type = number
+}
+
+variable "priority" {
+ type = number
+}
+
+variable "read_only_nodes" {
+ type = number
+}
+
+variable "analytics_nodes" {
+ type = number
+}
+
 variable "javascript_enabled" {
  type = bool
 }
@@ -176,10 +192,47 @@ variable "central_one_provider_region_name" {
  type = string
 }
 
+variable "central_one_electable_nodes" {
+ type = number
+}
+
+variable "central_one_priority" {
+ type = number
+}
+
+variable "central_one_read_only_nodes" {
+ type = number
+}
+
 variable "central_two_provider_region_name" {
  type = string
+}
+
+variable "central_two_electable_nodes" {
+ type = number
+}
+
+variable "central_two_priority" {
+ type = number
+}
+
+variable "central_two_read_only_nodes" {
+ type = number
 }
 
 variable "central_three_provider_region_name" {
  type = string
 }
+
+variable "central_three_electable_nodes" {
+ type = number
+}
+
+variable "central_three_priority" {
+ type = number
+}
+
+variable "central_three_read_only_nodes" {
+ type = number
+}
+

@@ -161,15 +161,15 @@ resource "mongodbatlas_cluster" "mongodb_cluster_central" {
     num_shards                                    = var.num_shards
     
     regions_config {
-      region_name                                 = var.region_one_provider_region_name
+      region_name                                 = var.central_one_provider_region_name
     }
     
     regions_config {
-      region_name                                 = var.region_two_provider_region_name
+      region_name                                 = var.central_two_provider_region_name
     }
     
     regions_config {
-      region_name                                 = var.region_three_provider_region_name
+      region_name                                 = var.central_three_provider_region_name
     }
   }
   

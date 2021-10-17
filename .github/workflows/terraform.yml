@@ -58,8 +58,9 @@ jobs:
       run: terraform plan
       
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push' && env.APPLY == 'yes'
+      #if: github.ref == 'refs/heads/main' && github.event_name == 'push' && env.APPLY == 'yes'
       #if: github.event_name == 'push' && env.APPLY == 'yes'
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
   
     - name: Terraform Destroy

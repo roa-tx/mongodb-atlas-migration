@@ -15,8 +15,8 @@ jobs:
       DEV: 'yes'
       PROD: 'no'
       PLAN: 'no'
-      APPLY: 'yes'
-      DESTROY: 'no'
+      APPLY: 'no'
+      DESTROY: 'yes'
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -31,8 +31,8 @@ jobs:
     - name: GitHub Actions Runner Set-up
       uses: actions/checkout@v2
       
-    - name: Terraform Repo Security Scan Set-up
-      uses: triat/terraform-security-scan@v3
+    #- name: Terraform Repo Security Scan Set-up
+    #  uses: triat/terraform-security-scan@v3
       
     - name: Terraform CLI Set-up
       uses: hashicorp/setup-terraform@v1

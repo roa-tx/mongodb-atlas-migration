@@ -33,7 +33,6 @@ resource "mongodbatlas_project" "mongodb_project" {
 
 # 2. create mongodb atlas project maintenance window
 resource "mongodbatlas_maintenance_window" "mongodb_project_maintenance_window" {
-  count                                           = length(var.cluster_names)
   depends_on                                      = [mongodbatlas_project.mongodb_project]
   project_id                                      = mongodbatlas_project.mongodb_project.id
   day_of_week                                     = var.day_of_week

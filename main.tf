@@ -193,6 +193,6 @@ resource "mongodbatlas_cluster" "mongodb_cluster_central" {
   
   labels {
     key                                           = var.cluster_node_key
-    value                                         = "${var.org_identifier}-${var.environment}-${var.central_cluster_names[count.index]}"
+    value                                         = "${var.org_identifier}-${var.environment}-${var.central_cluster_name}"
   }
 }

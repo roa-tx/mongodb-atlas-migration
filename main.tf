@@ -150,7 +150,7 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
 resource "mongodbatlas_cluster" "mongodb_cluster_central" {
   depends_on                                      = [mongodbatlas_database_user.mongodb_admin_database_user]
   project_id                                      = mongodbatlas_project.mongodb_project.id
-  name                                            = "${var.org_identifier}-${var.environment}-${var.central_cluster_name[count.index]}"
+  name                                            = "${var.org_identifier}-${var.environment}-${var.central_cluster_name}"
   cluster_type                                    = var.cluster_type
   cloud_backup                                    = var.cloud_backup
   auto_scaling_disk_gb_enabled                    = var.auto_scaling_disk_gb_enabled

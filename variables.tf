@@ -138,22 +138,6 @@ variable "provider_region_names" {
   type = list(string)
 }
 
-variable "electable_nodes" {
- type = number
-}
-
-variable "priority" {
- type = number
-}
-
-variable "read_only_nodes" {
- type = number
-}
-
-variable "analytics_nodes" {
- type = number
-}
-
 variable "javascript_enabled" {
  type = bool
 }
@@ -180,7 +164,6 @@ variable "central_provider_instance_size_name" {
  type = string
 }
 
-
 variable "central_provider_auto_scaling_compute_min_instance_size" {
  type = string
 }
@@ -189,50 +172,14 @@ variable "central_provider_auto_scaling_compute_max_instance_size" {
  type = string
 }
 
-variable "region_one_provider_region_name" {
+variable "central_one_provider_region_name" {
  type = string
 }
 
-variable "region_one_electable_nodes" {
- type = number
-}
-
-variable "region_one_priority" {
- type = number
-}
-
-variable "region_one_read_only_nodes" {
- type = number
-}
-
-variable "region_two_provider_region_name" {
+variable "central_two_provider_region_name" {
  type = string
 }
 
-variable "region_two_electable_nodes" {
- type = number
-}
-
-variable "region_two_priority" {
- type = number
-}
-
-variable "region_two_read_only_nodes" {
- type = number
-}
-
-variable "region_three_provider_region_name" {
+variable "central_three_provider_region_name" {
  type = string
-}
-
-variable "region_three_electable_nodes" {
- type = number
-}
-
-variable "region_three_priority" {
- type = number
-}
-
-variable "region_three_read_only_nodes" {
- type = number
 }

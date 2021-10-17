@@ -104,7 +104,9 @@ resource "mongodbatlas_database_user" "mongodb_admin_database_user" {
 }
 
 
-# 5. create the 3 regional mongodb atlas clusters
+# 5. create three regional mongodb atlas clusters
+#    note 1: each cluster is located in a different region
+#    note 2: the 3 nodes (within any regional cluster) are located in thesame region i.e. single-region clusters
 resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
   depends_on                                      = [mongodbatlas_database_user.mongodb_admin_database_user]
   count                                           = length(var.regional_cluster_names)
@@ -144,7 +146,8 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
 }
 
 
-# 6. create the central mongodb atlas cluster -> note: the nodes are regionalized
+# 6. create one central mongodb atlas cluster
+#    note 1: the 3 nodes (within the central cluster) are located in different regions i.e. multi-region cluster
 resource "mongodbatlas_cluster" "mongodb_cluster_central" {
   depends_on                                      = [mongodbatlas_database_user.mongodb_admin_database_user]
   project_id                                      = mongodbatlas_project.mongodb_project.id

@@ -81,7 +81,7 @@ variable "username" {
 }
 
 
-# 4. Mongodb Atlas database admin/master/super user variable
+# 4. Mongodb Atlas admin database user variables
 variable "mongodb_admin_role_name" {
   type = string
 }
@@ -91,7 +91,7 @@ variable "mongodb_admin_database_name" {
 }
 
 
-# 5. Mongodb Atlas cluster(s) variables
+# 5. The 3 regional Mongodb Atlas clusters variables
 variable "cluster_names" {
  description = "A list of cluster names of string type"
  type = list(string)
@@ -167,4 +167,76 @@ variable "minimum_enabled_tls_protocol" {
 
 variable "cluster_node_key" {
  type = string
+}
+
+
+# 6. The Central Mongodb Atlas cluster specific variables
+variable "central_cluster_name" {
+ type = string
+}
+
+variable "central_auto_scaling_compute_enabled" {
+ type = bool
+}
+
+variable "central_provider_instance_size_name" {
+ type = string
+}
+
+
+variable "central_provider_auto_scaling_compute_min_instance_size" {
+ type = string
+}
+
+variable "central_provider_auto_scaling_compute_max_instance_size" {
+ type = string
+}
+
+variable "region_one_provider_region_name" {
+ type = string
+}
+
+variable "region_one_priority" {
+ type = number
+}
+
+variable "region_one_provider_region_name" {
+ type = number
+}
+
+variable "region_one_read_only_nodes" {
+ type = number
+}
+
+variable "region_two_provider_region_name" {
+ type = string
+}
+
+variable "region_two_priority" {
+ type = number
+}
+
+variable "region_two_provider_region_name" {
+ type = number
+}
+
+variable "region_two_read_only_nodes" {
+ type = number
+}
+
+
+variable "region_three_provider_region_name" {
+ type = string
+}
+
+variable "region_three_priority" {
+ type = number
+}
+
+variable "region_three_provider_region_name" {
+ type = number
+}
+
+variable "region_three_read_only_nodes" {
+ type = number
 }

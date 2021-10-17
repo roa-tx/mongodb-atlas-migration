@@ -176,6 +176,10 @@ variable "central_auto_scaling_compute_enabled" {
  type = bool
 }
 
+variable "central_auto_scaling_compute_scale_down_enabled" {
+ type = bool
+}
+
 variable "central_provider_instance_size_name" {
  type = string
 }

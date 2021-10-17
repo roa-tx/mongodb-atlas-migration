@@ -1,4 +1,4 @@
-name: "CI - MongoDB-Atlas-On-AWS"
+name: "CI"
 
 on:
   push:

@@ -12,10 +12,10 @@ jobs:
     name: Terraform
     runs-on: ubuntu-latest
     env:
-      DEV: 'yes'
+      DEV: 'no'
       PROD: 'no'
       PLAN: 'no'
-      APPLY: 'yes'
+      APPLY: 'no'
       DESTROY: 'no'
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_REGION: ${{ secrets.AWS_REGION }}

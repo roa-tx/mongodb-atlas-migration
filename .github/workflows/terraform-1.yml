@@ -1,10 +1,11 @@
-name: 'Terraform'
+name: CI - MongoDB-Atlas-On-AWS2
 
 on:
   push:
     branches:
     - main
   pull_request:
+   # matches pull request for all branches and tag names
 
 jobs:
   terraform:

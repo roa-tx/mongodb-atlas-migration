@@ -139,7 +139,7 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
  
  labels {
     key                                           = var.cluster_node_key
-    value                                         = "${var.org_identifier}-${var.environment}-${var.cluster_names[count.index]}"
+    value                                         = "${var.org_identifier}-${var.environment}-${var.regional_cluster_names[count.index]}"
   }
 }
 
@@ -184,5 +184,15 @@ resource "mongodbatlas_cluster" "mongodb_cluster_central" {
       priority                                    = var.region_three_priority
       read_only_nodes                             = var.region_three_read_only_nodes
     }
+  }
+  
+  advanced_configuration {
+    javascript_enabled                            = var.javascript_enabled
+    minimum_enabled_tls_protocol                  = var.minimum_enabled_tls_protocol
+  }
+  
+  labels {
+    key                                           = var.cluster_node_key
+    value                                         = "${var.org_identifier}-${var.environment}-${var.central_cluster_names[count.index]}"
   }
 }

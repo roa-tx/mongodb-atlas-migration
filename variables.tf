@@ -47,12 +47,10 @@ variable "hour_of_day" {
 # 3. Credentials-related  variables i.e. variables for random password, secret random uuid, and AWS secret & secret version
 variable "random_password_length" {
   type = number
-  default = 20
 }
 
 variable "random_password_true" {
   type = bool
-  default = true
 }
 
 variable "random_password_override_special" {
@@ -93,7 +91,6 @@ variable "mongodb_admin_database_name" {
 
 # 5. The 3 regional Mongodb Atlas clusters variables
 variable "cluster_names" {
- description = "A list of cluster names of string type"
  type = list(string)
 }
 
@@ -196,11 +193,11 @@ variable "region_one_provider_region_name" {
  type = string
 }
 
-variable "region_one_priority" {
+variable "region_one_electable_nodes" {
  type = number
 }
 
-variable "region_one_provider_region_name" {
+variable "region_one_priority" {
  type = number
 }
 
@@ -212,11 +209,11 @@ variable "region_two_provider_region_name" {
  type = string
 }
 
-variable "region_two_priority" {
+variable "region_two_electable_nodes" {
  type = number
 }
 
-variable "region_two_provider_region_name" {
+variable "region_two_priority" {
  type = number
 }
 
@@ -224,16 +221,15 @@ variable "region_two_read_only_nodes" {
  type = number
 }
 
-
 variable "region_three_provider_region_name" {
  type = string
 }
 
-variable "region_three_priority" {
+variable "region_three_electable_nodes" {
  type = number
 }
 
-variable "region_three_provider_region_name" {
+variable "region_three_priority" {
  type = number
 }
 

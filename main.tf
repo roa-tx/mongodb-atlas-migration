@@ -156,6 +156,7 @@ resource "mongodbatlas_cluster" "mongodb_cluster_central" {
   cloud_backup                                    = var.cloud_backup
   auto_scaling_disk_gb_enabled                    = var.auto_scaling_disk_gb_enabled
   auto_scaling_compute_enabled                    = var.central_auto_scaling_compute_enabled
+  auto_scaling_compute_scale_down_enabled         = var.central_auto_scaling_compute_scale_down_enabled
   mongo_db_major_version                          = var.mongo_db_major_version
   disk_size_gb                                    = var.disk_size_gb
   provider_name                                   = var.provider_name

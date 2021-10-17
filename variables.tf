@@ -47,12 +47,10 @@ variable "hour_of_day" {
 # 3. Credentials-related  variables i.e. variables for random password, secret random uuid, and AWS secret & secret version
 variable "random_password_length" {
   type = number
-  default = 20
 }
 
 variable "random_password_true" {
   type = bool
-  default = true
 }
 
 variable "random_password_override_special" {
@@ -93,7 +91,6 @@ variable "mongodb_admin_database_name" {
 
 # 5. The 3 regional Mongodb Atlas clusters variables
 variable "cluster_names" {
- description = "A list of cluster names of string type"
  type = list(string)
 }
 

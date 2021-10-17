@@ -122,9 +122,13 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
   
   replication_specs {
     num_shards                                    = var.num_shards
-  
+    
     regions_config {
       region_name                                 = var.provider_region_names[count.index]
+      electable_nodes                             = var.electable_nodes
+      priority                                    = var.priority
+      read_only_nodes                             = var.read_only_nodes
+      analytics_nodes                             = var.analytics_nodes
     }
   }
   
@@ -133,7 +137,7 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
     minimum_enabled_tls_protocol                  = var.minimum_enabled_tls_protocol
  }
  
-  labels {
+ labels {
     key                                           = var.cluster_node_key
     value                                         = "${var.org_identifier}-${var.environment}-${var.regional_cluster_names[count.index]}"
   }
@@ -162,14 +166,23 @@ resource "mongodbatlas_cluster" "mongodb_cluster_central" {
     
     regions_config {
       region_name                                 = var.central_one_provider_region_name
+      electable_nodes                             = var.central_one_electable_nodes
+      priority                                    = var.central_one_priority
+      read_only_nodes                             = var.central_one_read_only_nodes
     }
     
     regions_config {
       region_name                                 = var.central_two_provider_region_name
+      electable_nodes                             = var.central_two_electable_nodes
+      priority                                    = var.central_two_priority
+      read_only_nodes                             = var.central_two_read_only_nodes
     }
     
     regions_config {
       region_name                                 = var.central_three_provider_region_name
+      electable_nodes                             = var.central_three_electable_nodes
+      priority                                    = var.central_three_priority
+      read_only_nodes                             = var.central_three_read_only_nodes
     }
   }
   

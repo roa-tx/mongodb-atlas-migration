@@ -196,11 +196,11 @@ variable "region_one_provider_region_name" {
  type = string
 }
 
-variable "region_one_priority" {
+variable "region_one_electable_nodes" {
  type = number
 }
 
-variable "region_one_provider_region_name" {
+variable "region_one_priority" {
  type = number
 }
 
@@ -212,11 +212,11 @@ variable "region_two_provider_region_name" {
  type = string
 }
 
-variable "region_two_priority" {
+variable "region_two_electable_nodes" {
  type = number
 }
 
-variable "region_two_provider_region_name" {
+variable "region_two_priority" {
  type = number
 }
 
@@ -224,16 +224,15 @@ variable "region_two_read_only_nodes" {
  type = number
 }
 
-
 variable "region_three_provider_region_name" {
  type = string
 }
 
-variable "region_three_priority" {
+variable "region_one_electable_nodes" {
  type = number
 }
 
-variable "region_three_provider_region_name" {
+variable "region_three_priority" {
  type = number
 }
 

@@ -122,9 +122,10 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
   
   replication_specs {
     num_shards                                    = var.num_shards
-    
+  
     regions_config {
       region_name                                 = var.provider_region_names[count.index]
+    }
   }
   
   advanced_configuration {
@@ -132,7 +133,7 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
     minimum_enabled_tls_protocol                  = var.minimum_enabled_tls_protocol
  }
  
- labels {
+  labels {
     key                                           = var.cluster_node_key
     value                                         = "${var.org_identifier}-${var.environment}-${var.regional_cluster_names[count.index]}"
   }

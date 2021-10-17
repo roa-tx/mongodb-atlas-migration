@@ -1,4 +1,3 @@
-#
 name: "CI - MongoDB-Atlas-On-AWS"
 
 on:

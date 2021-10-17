@@ -16,7 +16,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket  = "my-bucket-0"
+    bucket  = "test-bucket-eco"
     key     = "mongodb-atlas-mgr/terraform.tfstate"
     region  = "us-east-1"
     encrypt = true
@@ -41,7 +41,7 @@ resource "mongodbatlas_maintenance_window" "mongodb_project_maintenance_window" 
 }
   
   
-# 3 create admin/master/super user's credential and storage for the admin/master/super user's credentials
+# 3 create admin user's credential and storage for the admin user's credentials
 # a. create random password to be used as database password
 resource "random_password" "random_password" {
   depends_on                    =  [mongodbatlas_maintenance_window.mongodb_project_maintenance_window]
@@ -85,8 +85,8 @@ resource "aws_secretsmanager_secret_version" "secret_version" {
 }
 
 
-# 4. create mongodb atlas database admin/master/super user and assign the credentials stored in secret manager to the user
-resource "mongodbatlas_database_user" "mongodb_database_admin_user" {
+# 4. create mongodb atlas admin database user and assign the credentials stored in secret manager to the user
+resource "mongodbatlas_database_user" "mongodb_admin_database_user" {
   depends_on                     = [aws_secretsmanager_secret_version.secret_version]
   username                       = local.credentials.username
   password                       = local.credentials.password
@@ -104,8 +104,9 @@ resource "mongodbatlas_database_user" "mongodb_database_admin_user" {
   }
 }
 
-# 5. create mongodb atlas cluster(s)
-resource "mongodbatlas_cluster" "mongodb_cluster" {
+
+# 5. create the 3 regional mongodb atlas clusters
+resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
   depends_on                     = [mongodbatlas_database_user.mongodb_database_admin_user]
   count                          = length(var.cluster_names)
   project_id                     = mongodbatlas_project.mongodb_project.id
@@ -141,4 +142,49 @@ resource "mongodbatlas_cluster" "mongodb_cluster" {
     key                          = var.cluster_node_key
     value                        = "${var.org_identifier}-${var.environment}-${var.cluster_names[count.index]}"
   }
+  
+}
+
+
+# 6. create the central mongodb atlas cluster -> note: the nodes are regionalized
+resource "mongodbatlas_cluster" "mongodb_cluster_central" {
+  project_id                                      = mongodbatlas_project.mongodb_project.id
+  name                                            = "${var.org_identifier}-${var.environment}-${var.central_cluster_name[count.index]}"
+  cluster_type                                    = var.cluster_type
+  cloud_backup                                    = var.cloud_backup
+  auto_scaling_disk_gb_enabled                    = var.auto_scaling_disk_gb_enabled
+  auto_scaling_compute_enabled                    = var.central_auto_scaling_compute_enabled
+  mongo_db_major_version                          = var.mongo_db_major_version
+  disk_size_gb                                    = var.disk_size_gb
+  provider_name                                   = var.provider_name
+  provider_instance_size_name                     = var.central_provider_instance_size_name
+  provider_volume_type                            = var.provider_volume_type
+  provider_auto_scaling_compute_min_instance_size = var.central_provider_auto_scaling_compute_min_instance_size
+  provider_auto_scaling_compute_max_instance_size = var.central_provider_auto_scaling_compute_max_instance_size
+  
+  replication_specs {
+    num_shards                                    = var.num_shards
+    
+    regions_config {
+      region_name                                 = var.region_one_provider_region_name
+      electable_nodes                             = var.region_one_electable_nodes
+      priority                                    = var.region_one_priority
+      read_only_nodes                             = var.region_one_read_only_nodes
+    }
+    
+    regions_config {
+      region_name                                 = var.region_two_provider_region_name
+      electable_nodes                             = var.region_two_electable_nodes
+      priority                                    = var.region_two_priority
+      read_only_nodes                             = var.region_two_read_only_nodes
+    }
+    
+    regions_config {
+      region_name                                 = var.region_three_provider_region_name
+      electable_nodes                             = var.region_three_electable_nodes
+      priority                                    = var.region_three_priority
+      read_only_nodes                             = var.region_three_read_only_nodes
+    }
+  }
+  
 }

@@ -108,9 +108,9 @@ resource "mongodbatlas_database_user" "mongodb_admin_database_user" {
 # 5. create the 3 regional mongodb atlas clusters
 resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
   depends_on                                      = [mongodbatlas_database_user.mongodb_admin_database_user]
-  count                                           = length(var.cluster_names)
+  count                                           = length(var.regional_cluster_names)
   project_id                                      = mongodbatlas_project.mongodb_project.id
-  name                                            = "${var.org_identifier}-${var.environment}-${var.cluster_names[count.index]}"
+  name                                            = "${var.org_identifier}-${var.environment}-${var.regional_cluster_names[count.index]}"
   cluster_type                                    = var.cluster_type
   cloud_backup                                    = var.cloud_backup
   auto_scaling_disk_gb_enabled                    = var.auto_scaling_disk_gb_enabled
@@ -142,7 +142,6 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
     key                                           = var.cluster_node_key
     value                                         = "${var.org_identifier}-${var.environment}-${var.cluster_names[count.index]}"
   }
-  
 }
 
 
@@ -187,5 +186,4 @@ resource "mongodbatlas_cluster" "mongodb_cluster_central" {
       read_only_nodes                             = var.region_three_read_only_nodes
     }
   }
-  
 }

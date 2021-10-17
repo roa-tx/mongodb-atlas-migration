@@ -1,4 +1,4 @@
-## 0. Organization identifier, project, environmental and creator variables
+# 0. Organization identifier, project, environmental and creator variables
 org_identifier                                          = "eco"
 project_name                                            = "mgr"
 environment                                             = "dev"

@@ -1,4 +1,4 @@
-[![CI - MongoDB-Atlas-On-AWS](https://github.com/roa-tx/mongodb-atlas-migration/actions/workflows/terraform.yaml/badge.svg)](https://github.com/roa-tx/mongodb-atlas-migration/actions/workflows/terraform.yaml)
+[![CI - MongoDB-Atlas-On-AWS](https://github.com/roa-tx/mongodb-atlas-migration/actions/workflows/terraform.yaml/badge.svg)](https://github.com/roa-tx/mongodb-atlas-migration/actions/workflows/terraform.yml)
 
 # Migration to MongoDB Atlas
 

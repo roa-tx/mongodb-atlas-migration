@@ -7,10 +7,10 @@ This repo contains the source codes for the migration of MongoDB Servers (**on-p
 
 ## Terraform (TF) Module.
 Terraform module for the deployment of:
-1. MongoDB Atlas Project. 
+1. MongoDB Atlas Project.
 2. MongoDB Atlas Project Maintenance Window.
-3. Admin/Master/Super Credentials & AWS Secret Manager's Secret and Secret Version for credential storage.
-4. MongoDB Atlas Database Admin/Master/Super User  (Credential in (3) above is assigned to the database user).
+3. Admin Credentials, and AWS Secret Manager's Secret and Secret Version for credential storage.
+4. MongoDB Atlas Admin Database User (Credential in (3) above is assigned to the database user).
 5. MongoDB Atlas Clusters.
 
 

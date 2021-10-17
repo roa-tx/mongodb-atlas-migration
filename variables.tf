@@ -90,7 +90,7 @@ variable "mongodb_admin_database_name" {
 
 
 # 5. The 3 regional Mongodb Atlas clusters variables
-variable "cluster_names" {
+variable "regional_cluster_names" {
  type = list(string)
 }
 

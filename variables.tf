@@ -228,7 +228,7 @@ variable "region_three_provider_region_name" {
  type = string
 }
 
-variable "region_one_electable_nodes" {
+variable "region_three_electable_nodes" {
  type = number
 }
 

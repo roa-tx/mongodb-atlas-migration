@@ -125,11 +125,6 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
     
     regions_config {
       region_name                                 = var.provider_region_names[count.index]
-      electable_nodes                             = var.electable_nodes
-      priority                                    = var.priority
-      read_only_nodes                             = var.read_only_nodes
-      analytics_nodes                             = var.analytics_nodes
-    }
   }
   
   advanced_configuration {
@@ -166,23 +161,14 @@ resource "mongodbatlas_cluster" "mongodb_cluster_central" {
     
     regions_config {
       region_name                                 = var.region_one_provider_region_name
-      electable_nodes                             = var.region_one_electable_nodes
-      priority                                    = var.region_one_priority
-      read_only_nodes                             = var.region_one_read_only_nodes
     }
     
     regions_config {
       region_name                                 = var.region_two_provider_region_name
-      electable_nodes                             = var.region_two_electable_nodes
-      priority                                    = var.region_two_priority
-      read_only_nodes                             = var.region_two_read_only_nodes
     }
     
     regions_config {
       region_name                                 = var.region_three_provider_region_name
-      electable_nodes                             = var.region_three_electable_nodes
-      priority                                    = var.region_three_priority
-      read_only_nodes                             = var.region_three_read_only_nodes
     }
   }
   

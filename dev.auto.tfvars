@@ -51,6 +51,7 @@ cluster_node_key                                        = "node-name"
 # 6. Central Mongodb Atlas cluster specific variables
 central_cluster_name                                    = "central"
 central_auto_scaling_compute_enabled                    = true
+central_auto_scaling_compute_scale_down_enabled         = true
 central_provider_instance_size_name                     = "M10" 
 central_provider_auto_scaling_compute_min_instance_size = "M10"
 central_provider_auto_scaling_compute_max_instance_size = "M20" 

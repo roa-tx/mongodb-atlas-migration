@@ -13,7 +13,7 @@ jobs:
     name: Terraform
     runs-on: ubuntu-latest
     env:
-      DEV: 'no'
+      DEV: 'yes'
       PROD: 'no'
       PLAN: 'yes'
       APPLY: 'no'

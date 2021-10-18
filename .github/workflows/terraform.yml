@@ -57,7 +57,7 @@ jobs:
         EOF
     
     - name: Terraform Plan
-      if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' | env.PROD == 'yes' )
+      if:  (env.PLAN == 'yes') && ( env.DEV == 'yes' || env.PROD == 'yes' )
       run: terraform plan
       
     - name: Terraform Apply

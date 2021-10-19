@@ -4,6 +4,9 @@ project_name                                            = "mgr"
 environment                                             = "dev"
 aws_region_name                                         = "us-east-1"
 creator                                                 = "Terraform"
+aws_migration_project_id                                = 24253
+owner                                                   = "Price Spider"
+team                                                    = "Internal Tools"
 
 # 1. Project variables
 mongodb_org_id                                          = "5e53ff6d8be7552e2e723e7c"
@@ -46,7 +49,6 @@ read_only_nodes                                         = 0
 analytics_nodes                                         = 0
 javascript_enabled                                      = false
 minimum_enabled_tls_protocol                            = "TLS1_2"
-cluster_node_key                                        = "node-name"
 
 # 6. Central Mongodb Atlas cluster specific variables
 central_cluster_name                                    = "central"

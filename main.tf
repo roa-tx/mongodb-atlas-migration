@@ -65,12 +65,11 @@ resource "aws_secretsmanager_secret" "secret" {
   tags = {
     Name                                          = "${var.org_identifier}-${var.environment}-${var.aws_secretsmanager_secret_name}-${random_uuid.secret_random_uuid.result}"
     Creator                                       =  var.creator
-    "aws-migration-project-id"                    =  24253
-    Environments                                  =  var.environment
+    "aws-migration-project-id"                    =  var.aws_migration_project_id
+    Environment                                   =  var.environment
     ManagedBy                                     =  var.creator
-    Owner                                         =  var.org_identifier
-    Team                                          =  var.org_identifier #"Rackspace"
-    
+    Owner                                         =  var.owner
+    Team                                          =  var.team
   }
 }
 
@@ -104,14 +103,45 @@ resource "mongodbatlas_database_user" "mongodb_admin_database_user" {
     database_name                                 = var.mongodb_admin_database_name
   }
 
+  
   labels {
     key                                           = "${var.org_identifier}-${var.environment}-mongodb-roles}"
     value                                         = "${var.org_identifier}-${var.environment}-${var.mongodb_admin_role_name}"
   }
   
   labels {
+    key                                           = "Name"
+    value                                         = "${var.org_identifier}-${var.environment}-read-write-admin-db"
+  }
+  
+  labels {
     key                                           = "Creator"
     value                                         = var.creator
+  }
+  
+  labels {
+    key                                           = "aws-migration-project-id"
+    value                                         = var.aws_migration_project_id
+  }
+  
+  labels {
+    key                                           = "Environment"
+    value                                         = var.environment
+  }
+  
+  labels {
+    key                                           = "ManagedBy"
+    value                                         = var.creator
+  }
+  
+  labels {
+    key                                           = "Owner"
+    value                                         = var.owner
+  }
+  
+  labels {
+    key                                           = "Team"
+    value                                         = var.team
   }
 }
 
@@ -151,14 +181,40 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
     minimum_enabled_tls_protocol                  = var.minimum_enabled_tls_protocol
  }
  
+  
  labels {
-    key                                           = var.cluster_node_key
+    key                                           = "Name"
     value                                         = "${var.org_identifier}-${var.environment}-${var.regional_cluster_names[count.index]}"
   }
   
   labels {
     key                                           = "Creator"
     value                                         = var.creator
+  }
+  
+  labels {
+    key                                           = "aws-migration-project-id"
+    value                                         = var.aws_migration_project_id
+  }
+  
+  labels {
+    key                                           = "Environment"
+    value                                         = var.environment
+  }
+  
+  labels {
+    key                                           = "ManagedBy"
+    value                                         = var.creator
+  }
+  
+  labels {
+    key                                           = "Owner"
+    value                                         = var.owner
+  }
+  
+  labels {
+    key                                           = "Team"
+    value                                         = var.team
   }
 }
 
@@ -212,8 +268,39 @@ resource "mongodbatlas_cluster" "mongodb_cluster_central" {
     minimum_enabled_tls_protocol                  = var.minimum_enabled_tls_protocol
   }
   
+  
   labels {
-    key                                           = var.cluster_node_key
+    key                                           = "Name"
     value                                         = "${var.org_identifier}-${var.environment}-${var.central_cluster_name}"
+  }
+  
+  labels {
+    key                                           = "Creator"
+    value                                         = var.creator
+  }
+  
+  labels {
+    key                                           = "aws-migration-project-id"
+    value                                         = var.aws_migration_project_id
+  }
+  
+  labels {
+    key                                           = "Environment"
+    value                                         = var.environment
+  }
+  
+  labels {
+    key                                           = "ManagedBy"
+    value                                         = var.creator
+  }
+  
+  labels {
+    key                                           = "Owner"
+    value                                         = var.owner
+  }
+  
+  labels {
+    key                                           = "Team"
+    value                                         = var.team
   }
 }

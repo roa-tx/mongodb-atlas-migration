@@ -15,7 +15,7 @@ output "mongodb_project_maintenance_window_attributes" {
 output "mongodb_credentials_attributes" {
   description = "key-value pair of the admin database user's credential (username and password)"
   value = jsondecode(aws_secretsmanager_secret_version.secret_version.secret_string)
-  #sensitive = true
+  sensitive = true
 }
 
 # 4.

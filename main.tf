@@ -61,9 +61,16 @@ resource "aws_secretsmanager_secret" "secret" {
   name                                            = "${var.org_identifier}-${var.environment}-${var.aws_secretsmanager_secret_name}-${random_uuid.secret_random_uuid.result}"
   description                                     = var.secret_description
   recovery_window_in_days                         = var.recovery_window_in_days
+  
   tags = {
     Name                                          = "${var.org_identifier}-${var.environment}-${var.aws_secretsmanager_secret_name}-${random_uuid.secret_random_uuid.result}"
-    Creator                                       = var.creator
+    Creator                                       =  var.creator
+    "aws-migration-project-id"                    =  24253
+    Environments                                  =  var.environment
+    ManagedBy                                     =  var.creator
+    Owner                                         =  var.org_identifier
+    Team                                          =  var.org_identifier #"Rackspace"
+    
   }
 }
 
@@ -100,6 +107,11 @@ resource "mongodbatlas_database_user" "mongodb_admin_database_user" {
   labels {
     key                                           = "${var.org_identifier}-${var.environment}-mongodb-roles}"
     value                                         = "${var.org_identifier}-${var.environment}-${var.mongodb_admin_role_name}"
+  }
+  
+  labels {
+    key                                           = "Creator"
+    value                                         = var.creator
   }
 }
 
@@ -142,6 +154,11 @@ resource "mongodbatlas_cluster" "mongodb_cluster_regionals" {
  labels {
     key                                           = var.cluster_node_key
     value                                         = "${var.org_identifier}-${var.environment}-${var.regional_cluster_names[count.index]}"
+  }
+  
+  labels {
+    key                                           = "Creator"
+    value                                         = var.creator
   }
 }
 

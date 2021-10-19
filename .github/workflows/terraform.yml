@@ -15,8 +15,8 @@ jobs:
     env:
       DEV: 'yes'
       PROD: 'no'
-      PLAN: 'yes'
-      APPLY: 'no'
+      PLAN: 'no'
+      APPLY: 'yes'
       DESTROY: 'no'
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_REGION: ${{ secrets.AWS_REGION }}

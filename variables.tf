@@ -20,6 +20,18 @@ variable "creator" {
   type = string
 }
 
+variable "aws_migration_project_id" {
+  type = string
+}
+
+variable "owner" {
+  type = string
+}
+
+variable "team" {
+  type = string
+}
+
 
 # 1. Mongodb Atlas project variables
 variable "mongodb_org_id" {

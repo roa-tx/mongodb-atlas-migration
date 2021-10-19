@@ -105,11 +105,6 @@ resource "mongodbatlas_database_user" "mongodb_admin_database_user" {
 
   
   labels {
-    key                                           = "${var.org_identifier}-${var.environment}-mongodb-roles}"
-    value                                         = "${var.org_identifier}-${var.environment}-${var.mongodb_admin_role_name}"
-  }
-  
-  labels {
     key                                           = "Name"
     value                                         = "${var.org_identifier}-${var.environment}-read-write-admin-db"
   }

@@ -174,10 +174,6 @@ variable "minimum_enabled_tls_protocol" {
  type = string
 }
 
-variable "cluster_node_key" {
- type = string
-}
-
 
 # 6. The Central Mongodb Atlas cluster specific variables
 variable "central_cluster_name" {

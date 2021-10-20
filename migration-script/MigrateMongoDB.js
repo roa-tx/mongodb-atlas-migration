@@ -63,9 +63,9 @@ class MigrateMongoDB
         cpexec.on('exit', function (code)
         {
           const decimalPlaces = 6;
-          const copyDuration = ((new Date()).getTime() - initialTime.getTime())/(1000)
+          const actionDuration = ((new Date()).getTime() - initialTime.getTime())/(1000)
           console.log("===============================================================");
-          console.log("Copy Duration : " , copyDuration.toFixed(decimalPlaces)/1, "seconds");
+          console.log(action.toUpperCase(), " Duration : " , actionDuration.toFixed(decimalPlaces)/1, "seconds");
           console.log("Child process exited with code : ", code);
           console.log("===============================================================");
         });

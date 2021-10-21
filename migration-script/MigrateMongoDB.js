@@ -37,7 +37,7 @@ class MigrateMongoDB
         else if(action === "restore")
         {
             const dataPath = dataSourceOrTarget;
-            command = `sudo mongorestore --uri=mongodb+srv://${cds.dbUserName}:${cds.dbUserPassword}@${cds.dbDomainURL} --drop ${dataPath}/${cds.dbColName}.bson`;
+            command = `sudo mongorestore --uri=mongodb+srv://${cds.dbUserName}:${cds.dbUserPassword}@${cds.dbDomainURL} --drop --db ${cds.dbName} ${dataPath}`;
         }
         
         
@@ -530,7 +530,7 @@ class MigrateMongoDB
             if(action === "dump")
             {
                 credentials = sourceCredentials;
-                dataSourceOrTarget = "/home/ubuntu/environment/dump";
+                dataSourceOrTarget = `/home/ubuntu/environment/dump`;
                 app.dumpOrRestoreMongoDB(dataSourceOrTarget, credentials, action, timeout);
             }
             else if(action === "restore")
